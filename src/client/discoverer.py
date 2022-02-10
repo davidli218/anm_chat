@@ -5,7 +5,7 @@ import threading
 import time
 from hashlib import md5
 
-from cilent import conf
+from client import conf
 from share.utils.out import ColoredPrint
 from share.utils.validator import valid_ip_port
 

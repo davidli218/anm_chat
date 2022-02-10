@@ -1,4 +1,4 @@
-from cilent import help_doc
+from client import help_doc
 from share.utils.out import ColoredPrint
 
 

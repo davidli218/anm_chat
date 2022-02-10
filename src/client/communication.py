@@ -1,6 +1,6 @@
 import socket
 
-from cilent import conf
+from client import conf
 
 
 class Communication:

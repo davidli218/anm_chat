@@ -1,4 +1,4 @@
-from cilent import conf, discoverer, home
+from client import conf, discoverer, home
 from share.art import ascii_art_title_4client
 from share.utils.out import ColoredPrint
 from share.utils.system import clear_screen
