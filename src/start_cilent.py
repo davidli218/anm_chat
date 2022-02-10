@@ -1,4 +1,6 @@
-from cilent import client
+from cilent import client_main
 
 if __name__ == '__main__':
-    client.execute()
+    host = client_main.AnonymChatClient()
+
+    host.start()
