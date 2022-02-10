@@ -63,10 +63,9 @@ class AnonymChatClientHome:
                 if choice == 'Y':
                     self.__exit_flag = True
                     return
-                elif choice == 'N':
+                if choice == 'N':
                     return
-                else:
-                    print("Invalid input, only 'Y' and 'N' is available)")
+                print("Invalid input, only 'Y' and 'N' is available)")
 
         else:
             print(help_doc.exit_help_doc)
