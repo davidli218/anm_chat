@@ -21,6 +21,5 @@ class AnonymChatClient:
     @staticmethod
     def __client_start_ui():
         """ Initialize client """
-
         clear_screen()
         ColoredPrint(ascii_art_title_4client, 'yellow')

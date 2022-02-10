@@ -20,7 +20,6 @@ class ReceptionService:
         :param pairing_port: 负责配对任务的端口
         :param massage_port: 负责消息收发的端口
         """
-
         self.__my_name = f'[{self.__class__.__name__} at {id(self)}]'
         self.__broadcast_port = broadcast_port
         self.__broadcast_dest_port = client_pairing_port
@@ -85,7 +84,6 @@ class ReceptionService:
 
     def __udp_broadcast(self):
         """ UDP Broadcast 用于被客户端发现 """
-
         broadcast_dest = (socket.gethostbyname(socket.gethostname()).rsplit('.', 1)[0] + '.255',
                           self.__broadcast_dest_port)
 
@@ -108,7 +106,6 @@ class ReceptionService:
 
     def __new_user_waiter(self):
         """ Deal with new client connection request """
-
         while True:
             welcome_message = f'Welcome!'
             pkg: bytes
@@ -160,7 +157,6 @@ class Message4Pairing:
         :param content: Content
         :return: [ md5(JSON(content)) + ';' + JSON(content) ].UTF-8
         """
-
         content = json.dumps(content)
         content = ';'.join([md5(content.encode('UTF-8')).hexdigest(), content])
 
@@ -173,7 +169,6 @@ class Message4Pairing:
         :param pack: [ md5(JSON(content)) + ';' + JSON(content) ].UTF-8
         :return: Content
         """
-
         pack = pack.decode('UTF-8').split(';')
 
         if len(pack) != 2 or pack[0] != md5(pack[1].encode('UTF-8')).hexdigest():

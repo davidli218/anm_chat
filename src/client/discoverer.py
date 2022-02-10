@@ -39,7 +39,6 @@ class ConnServer:
 
     def __main(self):
         """ Main logic of find & Connect the server """
-
         # Get server address automatically -- {
         thread_find_by_bc = threading.Thread(target=self.__find_by_broadcast)
         thread_find_by_bc.start()
@@ -67,7 +66,6 @@ class ConnServer:
 
     def __find_by_broadcast(self):
         """ Find the server automatically via UDP broadcast """
-
         self.__pairing_socket.settimeout(8)
         start_time = time.time()
 
@@ -89,7 +87,6 @@ class ConnServer:
 
     def __find_by_manual(self):
         """ Find the server manually via user input address """
-
         print('No server detected automatically, please connect the server manually')
         while True:
             addr = input('Enter the server address in IP:Port (like 10.20.71.2:9999):')
@@ -102,7 +99,6 @@ class ConnServer:
 
     def __conn_server(self) -> bool:
         """ Connecting to the server """
-
         self.__pairing_socket.settimeout(2)
 
         response_to_server = {'time_stamp': time.time(),
@@ -142,7 +138,6 @@ class ConnServer:
         :param: pack: [ md5(JSON(content)) + ';' + JSON(content) ].UTF-8
         :return: Content
         """
-
         pack = pack.decode('UTF-8').split(';')
 
         if len(pack) != 2 or pack[0] != md5(pack[1].encode('UTF-8')).hexdigest():
@@ -157,7 +152,6 @@ class ConnServer:
         :param: content: Content
         :return: [ md5(JSON(content)) + ';' + JSON(content) ].UTF-8
         """
-
         content = json.dumps(content)
         content = ';'.join([md5(content.encode('UTF-8')).hexdigest(), content])
 
@@ -166,7 +160,6 @@ class ConnServer:
     @staticmethod
     def __input_nickname() -> str:
         """ Get user nickname """
-
         while True:
             name = input('Please give yourself a nickname(Up to 12 characters):')
             if len(name) < 13:
@@ -176,11 +169,9 @@ class ConnServer:
     @property
     def __server_pair_addr(self) -> tuple:
         """ Server pairing address """
-
         return self.__server_ip, self.__server_pairing_port
 
     @property
     def __server_msg_addr(self) -> tuple:
         """ Server message address """
-
         return self.__server_ip, self.__server_message_port
