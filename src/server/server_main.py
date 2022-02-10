@@ -30,7 +30,6 @@ class AnonymChatServer:
 
     def _server_start_ui(self):
         """ Starting Interface """
-
         clear_screen()
         ColoredPrint(ascii_art_title_4server, 'green')
         ColoredPrint(f'Host name:{socket.gethostname()}\t'
