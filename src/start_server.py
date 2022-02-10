@@ -1,4 +1,6 @@
-from server import server
+from server import server_main
 
 if __name__ == '__main__':
-    server.execute()
+    host = server_main.AnonymChatServer()
+
+    host.start()
